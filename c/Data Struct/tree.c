@@ -30,6 +30,26 @@ treenode_t* createnode(int value){
     return node;
 }
 
+bool insertNode(int value,treenode_t **root){
+    if(*root == NULL){
+        *root = createnode(value);
+        return true;
+    }
+    if ((*root)->value == value){
+        return false;
+    }
+    else if ((*root)->value < value){
+        return insertNode(value,&((*root)->right));
+    }
+
+    else if ((*root)->value > value){
+            return insertNode(value,&((*root)->left))
+    }
+
+
+    
+}
+
 void printtree(treenode_t *root){
     if (root == NULL){
         printf("---NULL---\n");
